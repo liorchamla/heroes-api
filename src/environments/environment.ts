@@ -4,5 +4,11 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endpoints: {
+    api: 'https://wf3-symfony-liorchamla.c9users.io:8081/api',
+    login: 'https://wf3-symfony-liorchamla.c9users.io:8081/login',
+    register: 'https://wf3-symfony-liorchamla.c9users.io:8081/register',
+    refresh: 'https://wf3-symfony-liorchamla.c9users.io:8081/refresh'
+  }
 };

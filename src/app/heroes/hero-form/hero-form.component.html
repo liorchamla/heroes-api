@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSave(form)" #form="ngForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" required [ngModel]="hero.name" name="name" class="form-control" placeholder="Hero's epic name !">
+    </div>
+    <div class="form-group"> 
+        <label for="description">Description</label>
+        <textarea name="description" required [ngModel]="hero.description" class="form-control" placeholder="Hero's mythical description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL</label>
+        <input type="text" required [ngModel]="hero.image" name="image" class="form-control" placeholder="Hero's avatar URL">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-save" *ngIf="!loading"></i>
+            <i class="fa fa-cog fa-spin" *ngIf="loading"></i>
+            &nbsp;Save
+        </button>
+    </div>
+</form>

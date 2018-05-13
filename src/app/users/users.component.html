@@ -1,0 +1,36 @@
+<h1>Users</h1>
+<a routerLink="/users/new" class="btn btn-primary float-right">
+  <i class="fa fa-user"></i> &nbsp;Create user</a>
+<p class="h5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores corporis, optio quae quasi molestias officiis?</p>
+<hr class="is-clearfix">
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Roles</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <span class="badge {{roles[role].className}} mr-2" *ngFor="let role of user.roles">
+          {{roles[role].label}}
+        </span>
+      </td>
+      <td>
+        <a [routerLink]="[user.id]" class="btn btn-primary btn-sm">
+          <i class="fa fa-pencil"></i> &nbsp;Edit
+        </a>
+        <button (click)="onRemove(user)" class="btn btn-danger btn-sm">
+          <i class="fa fa-times"></i> &nbsp;Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

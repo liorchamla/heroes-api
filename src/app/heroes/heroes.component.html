@@ -1,0 +1,28 @@
+<h1>Here are they ! The Heroes !</h1>
+<p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem excepturi maxime rerum accusamus laborum voluptatem vero cumque
+  inventore quae totam!</p>
+<hr>
+
+<div class="row">
+  <div class="col-4 hero" *ngFor="let hero of heroes">
+    <img [src]="hero.image" class="img-fluid">
+    <h2 class="h4">{{hero.name}}</h2>
+    <h4>{{hero.likes}}
+      <i class="fa fa-heart"></i> - {{hero.price}}&nbsp;€
+    </h4>
+
+    <div class="row">
+      <div class="col-6">
+        <a routerLink="/heroes/{{hero.id}}" class="btn btn-primary btn-block">
+          <i class="fa fa-search"></i> More
+        </a>
+      </div>
+      <div class="col-6">
+        <button (click)="addToCart(hero)" class="btn btn-success btn-block">
+          <i class="fa fa-shopping-cart"></i> Add
+        </button>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

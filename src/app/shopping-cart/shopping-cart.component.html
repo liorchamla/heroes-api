@@ -1,0 +1,24 @@
+<h1>Shopping Cart !</h1>
+<p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nulla iure ipsam ipsum officia assumenda animi voluptate magnam error nemo.</p>
+<table class="table table-hover table-striped">
+  <thead>
+    <th>Hero</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cart.items">
+      <td>{{item.hero.name}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.hero.price}}</td>
+      <td>{{item.hero.price * item.quantity}} €</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="text-right">Total :</td>
+      <td>{{cart.total}} €</td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,33 @@
+<h1>Create a new user !</h1>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="">Username</label>
+    <input type="text" class="form-control" placeholder="Username ..." name="username" ngModel #name="ngModel">
+    <div class="invalid-feedback">You need to provide a valid username</div>
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" placeholder="Email ..." name="email" ngModel #email="ngModel">
+    <div class="invalid-feedback">Your need to provide a real email address</div>
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="password" class="form-control" placeholder="Password .." name="password" ngModel #password="ngModel">
+    <div class="invalid-feedback">You need to provide a valid password</div>
+  </div>
+  <div class="form-group">
+    <label for="">Roles</label>
+    <select name="userRoles" class="form-control" multiple ngModel #userRoles="ngModel">
+      <option [ngValue]="role.id" *ngFor="let role of roles$ | async">{{role.role}}</option>
+    </select>
+  </div>
+  <div class="alert alert-danger" *ngIf="error">
+    {{error}}
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+      <i class="fa fa-check"></i> &nbsp;Create !
+    </button>
+  </div>
+</form>

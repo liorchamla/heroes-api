@@ -1,0 +1,22 @@
+<form (ngSubmit)="onLogin(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="">Username</label>
+    <input type="text" class="form-control" [class.is-invalid]="username.invalid && username.touched" required #username="ngModel" ngModel name="username" placeholder="Username ...">
+    <div class="invalid-feedback">
+        Vous devez fournir un identifiant !
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="password" class="form-control"[class.is-invalid]="password.invalid && password.touched" required #password="ngModel" ngModel name="password" placeholder="Password ...">
+    <div class="invalid-feedback">
+      Vous devez fournir un mot de passe !
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid"><i class="fa fa-lock"></i> &nbsp;Login !</button>
+  </div>
+</form>
